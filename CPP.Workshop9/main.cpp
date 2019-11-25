@@ -100,15 +100,15 @@ void populationByCountryAndCity(const std::vector<std::vector<std::string> > &wo
     std::string str2;
     for (std::map<std::string, int>::iterator it = countryPopulation.begin(); it!=countryPopulation.end(); it++)
     {
-        file << it->first << ":" << it->second << std::endl;
+        file << it->first << " : " << it->second << std::endl;
         for (std::map<std::string, int>::iterator it1 = cityPopulation[it->first].begin(); it1 != cityPopulation[it->first].end(); it1++)
         {
             if (it1->second == 0)
             {
-                file << it1->first << ":" << '?' << "/" << it->second << std::endl;
+                file << it1->first << " : " << '?' << " / " << it->second << std::endl;
             }
             else {
-                file << it1->first << ":" << it1->second << "/" << it->second << std::endl;
+                file << it1->first << " : " << it1->second << " / " << it->second << std::endl;
             }
         }
     }
