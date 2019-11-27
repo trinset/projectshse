@@ -56,6 +56,7 @@ Frequencies parseColumn (const std::string &fileName, const size_t &column_numbe
 }
 
 //Receives arguments fileName and column_number
+//Input sample (MAC styled): ./main.out input.csv 2
 int main (int argc, char **argv) {
     if (argc != 3) {
         return 0;
