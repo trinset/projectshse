@@ -22,19 +22,26 @@ void deleteZeroes(std::vector<int> &vec)
     vec.resize(index);
 }
 
-void deleteColumns(Matrix &matrix)
-{
-    int index = 0;
+void deleteColumns(Matrix &matrix) {
+    size_t size1 = matrix[0].size();
+    size_t min = size1;
     for (int i = 0; i < matrix.size(); i++) {
+        size_t index = 0;
         for (int k = 0; k < matrix[0].size(); k++) {
-            if (!matrix[i][k]) {
+            if (matrix[i][k] != 0) {
                 for (std::vector<int> &elem : matrix) {
-                    elem.erase(elem.begin() + k);
+                    elem[index] = elem[k];
                 }
+                index++;
             }
         }
+        min -= (size1 - index);
+    }
+    for (std::vector<int> &elem : matrix) {
+        elem.resize(min);
     }
 }
+
 
 int main()
 {
