@@ -24,21 +24,21 @@ void deleteZeroes(std::vector<int> &vec)
 
 void deleteColumns(Matrix &matrix) {
     size_t size1 = matrix[0].size();
-    size_t min = size1;
     for (int i = 0; i < matrix.size(); i++) {
         size_t index = 0;
+
         for (int k = 0; k < matrix[0].size(); k++) {
             if (matrix[i][k] != 0) {
                 for (std::vector<int> &elem : matrix) {
                     elem[index] = elem[k];
                 }
+
                 index++;
             }
         }
-        min -= (size1 - index);
-    }
-    for (std::vector<int> &elem : matrix) {
-        elem.resize(min);
+        for (std::vector<int> &elem : matrix) {
+            elem.resize(index);
+        }
     }
 }
 
@@ -56,7 +56,7 @@ int main()
     {
         std::cout << elem << std::endl;
     }
-    Matrix matrix = { {1, 2, 3, 0}, {1, 0, 2, 3} };
+    Matrix matrix = { {1, 0, 2, 0, 3, 0, 4}, {1, 0, 3, 0, 5, 4, 0} };
     deleteColumns(matrix);
     for (const std::vector<int> &vec1 : matrix)
     {
