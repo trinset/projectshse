@@ -28,9 +28,9 @@ int cnt_1(int a)
 int count_1_bit(int min, int max)
 {
     if (min != 0)
-        min -= 1;
-
-    return cnt_1(max) - cnt_1(min);
+        min -= 1;          // (simply cnt_1(2) - cnt_1(1) = 1, as it substitutes 01, which shouldn't be done)
+    
+    return cnt_1(max) - cnt_1(min);     
 }
 
 int main()
